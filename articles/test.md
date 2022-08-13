@@ -1,15 +1,16 @@
 ---
-title: "論理演算子の挙動"
-emoji: "🌊"
+title: "test"
+emoji: "🐷"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["react", "javaScript"]
 published: true
 ---
 
+
 # 論理演算子の挙動
 論理演算子は、if文のように条件分岐に使うことができます。
 
-## Left && Right
+## &&
 意味：LeftがtrueならばRightを返す。
 例：
 ```React:test.js
@@ -56,4 +57,3 @@ Left is false
 
 ## 参考
 https://wp-p.info/tpl_rep.php?cat=js-application&fl=r6
-
