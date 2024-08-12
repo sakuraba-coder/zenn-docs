@@ -3,7 +3,7 @@ title: "[2024年8月]virtualboxでwindowsサーバーを立てる"
 emoji: "🐡"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [仮想化, virtualbox, windowsサーバー]
-published: false
+published: true
 ---
 
 このページではvirtualboxからwindowsサーバーを起動する方法を紹介します。
