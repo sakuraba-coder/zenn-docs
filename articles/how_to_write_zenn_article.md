@@ -65,36 +65,27 @@ slugを変更すると記事の内容の変更ができなくなるので注意�
 :::
 ![commit](https://storage.googleapis.com/zenn-user-upload/3e22ef37ffe9-20240812.png)
 ## 画像の配置
-参考　https://zenn.dev/zenn/articles/deploy-github-images
 
 ### 画像の配置場所
-/imagesディレクトリに配置
-もしくは
 https://zenn.dev/dashboard/uploader
 にアップロード
 
-**アップロードした方が簡単なのでこちらを採用**
+**/images/に配置する方法もあるが、アップロードした方が簡単なのでこちらを採用**
 
 ### 画像ファイルの制限
 - ファイルサイズは 3MB 以内
 - 対応する拡張子は .png .jpg .jpeg .gif .webp のみ
 
 ### 画像ファイルの参照方法
+アップロードするとURLがコピーできるようになるのでそちらを参照
 ```
-![](/images/example-image1.png)
 ![](![](https://storage.googleapis.com/zenn-user-upload/example.png))
 ```
-:::message
-/images/から始まる絶対パスにする
-:::
-
-アップロードした画像のURLを取得したほうが簡単かな
-
 
 ## 記事の消し方
 1. ファイルを消してコミット
 2. [ダッシュボード](https://zenn.dev/dashboard)から削除する
-安全のため、articlesディレクトリからmarkdownファイルを削除しても zenn.dev 上では削除はされません。
+安全のため、articlesディレクトリからmarkdownファイルを削除しても zenn.dev 上では削除はされない。
 
 ## マークダウン方式
 https://zenn.dev/zenn/articles/markdown-guide
