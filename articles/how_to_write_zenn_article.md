@@ -6,7 +6,7 @@ topics: [zenn, linux]
 published: true
 ---
 
-前提としてgithubにzennのリポジトリは作っている状態とする。
+前提としてgithubにzennのリポジトリは作っている状態とする
 
 # 記事作成の流れ
 1. githubからVSCodeに環境をコピー
