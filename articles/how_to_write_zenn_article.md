@@ -6,12 +6,14 @@ topics: [zenn, linux]
 published: true
 ---
 
+久しぶりに記事を書こうとすると忘れてるので備忘録
+
 前提としてgithubにzennのリポジトリは作っている状態とする
 
 # 記事作成の流れ
-1. githubからVSCodeに環境をコピー
+1. githubからVSCodeに環境をコピー（clone&pull)
 2. 記事をコマンドで作成
-3. コミットする
+3. コミットする(コミットしてプッシュ)
 
 ## githubを使って記事を作成する
 参考 https://zenn.dev/eguchi244_dev/articles/github-zenn-linkage-20230501
