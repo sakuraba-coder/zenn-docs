@@ -145,4 +145,4 @@ https://zenn.dev/zenn/articles/markdown-guide
 ![](https://画像のURL =250x)
 ```
 =250x はサイズを指定している。px単位
-（していしなくてもいい）
+（指定しなくてもいい）
