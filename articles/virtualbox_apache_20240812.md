@@ -129,6 +129,8 @@ $ net stop apache2.4
 htdocs配下(ドキュメントルート)のindex.htmlがレスポンスされ、下記画像のようにIt Works!と表示される。
 ![](https://storage.googleapis.com/zenn-user-upload/5a97a5d4772f-20240813.png)
 
+https://marycore.jp/coding/htdocs-document-root/
+
 これで動作確認が取れたのでOK！
 エラーなどが起こった場合、logs配下のエラーログを確認する。
 
