@@ -113,6 +113,8 @@ $ httpd -k install
 
 [service is successfully installed.]が出力されたらOK
 
+https://qiita.com/TechCat56/items/aba26453c10414ce68f6
+
 ## Apache2.4の起動
 いくつかやりかたはあるが、そのままnetコマンドで起動する
 
