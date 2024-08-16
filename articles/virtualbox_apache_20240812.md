@@ -1,139 +1,136 @@
 ---
-title: "2024年8月[VirtualBox]windowsサーバーでApacheを立てる"
+title: "[2024年8月] VirtualBoxにWindowsサーバーを立ててApacheをインストールする"
 emoji: "🗂"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [VirtualBox, windowsサーバー, Apache]
+topics: [VirtualBox, Windowsサーバー, Apache]
 published: true
 ---
 
-このページではVirtualBoxに立てたWindowsサーバーにApacheを導入する方法を紹介します。
+このページでは、VirtualBoxに立てたWindowsサーバーにApacheを導入する方法を紹介します。
 
-# VirtualBoxの仮想サーバを起動
-VirtualBoxにWindowsサーバーを導入する方法は前の記事で行いました。
-https://zenn.dev/dollaga_saiore/articles/virtualbox_windows_20240812
+## VirtualBoxの仮想サーバを起動
+VirtualBoxにWindowsサーバーを導入する方法については、以下の記事をご参照ください。  
+[VirtualBoxにWindowsサーバーを導入する方法](https://zenn.dev/dollaga_saiore/articles/virtualbox_windows_20240812)
 
+## Apacheのインストール手順
 
-# Apacheのダウンロード
+ここからは、仮想環境内での操作を行います。
 
-ここからは起動した仮想環境の中で操作します。
-1. [Lhaplus](https://forest.watch.impress.co.jp/library/software/lhaplus/)のインストール
-2. [Visual C++ 再頒布可能パッケージ](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170)のダウンロード
+1. [Lhaplus](https://forest.watch.impress.co.jp/library/software/lhaplus/) のインストール
+2. [Visual C++ 再頒布可能パッケージ](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170) のダウンロード
 3. Visual C++ 再頒布可能パッケージのインストール
-4. Apache2.4のダウンロード
-5. Apache2.4のインストール
+4. Apache 2.4 のダウンロード
+5. Apache 2.4 のインストール
 
-## Lhaplusのインストール
-初期状態だとダウンロードしても解凍ができないので、Lhaplusをダウンロードしておく。もちろん7zipでもなんでもいい。
-https://forest.watch.impress.co.jp/library/software/lhaplus/
+### 1. Lhaplusのインストール
+初期状態では、ZIPファイルを解凍できないため、Lhaplusをインストールします。もちろん、7-Zipなど他の解凍ツールでも構いません。  
+[Lhaplus ダウンロードリンク](https://forest.watch.impress.co.jp/library/software/lhaplus/)
 
-![](https://storage.googleapis.com/zenn-user-upload/22b219772980-20240813.png)
+1. ダウンロードした「lpls174.exe」を実行します。
 
-ダウンロードした「lpls174.exe」を実行
-![](https://storage.googleapis.com/zenn-user-upload/9cce0c7585c6-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/9cce0c7585c6-20240813.png)
 
-文字化けしてますが読めますね、「次へ」です
-![](https://storage.googleapis.com/zenn-user-upload/3c82afee7a27-20240813.png)
+2. インストーラーが文字化けしていますが、「次へ」をクリックします。
 
-そのまま「次へ」
-![](https://storage.googleapis.com/zenn-user-upload/e460105fc457-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/3c82afee7a27-20240813.png)
 
-なぜか読めます。「はい」です。
-![](https://storage.googleapis.com/zenn-user-upload/3d8cf1f4e8f6-20240813.png)
+3. そのまま「次へ」をクリックします。
 
-「完了」です。
-![](https://storage.googleapis.com/zenn-user-upload/5eb8d5028cfd-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/e460105fc457-20240813.png)
 
-インストールされますので、終了します。
-![](https://storage.googleapis.com/zenn-user-upload/7269bf9b7e51-20240813.png)
+4. 「はい」をクリックしてインストールを進めます。
 
-これでzipファイルが解凍できるようになりました。
+    ![](https://storage.googleapis.com/zenn-user-upload/3d8cf1f4e8f6-20240813.png)
 
-## Visual C++ 再頒布可能パッケージのダウンロード
-結構最初に躓きがちなのですが、Apatcheの実行には*Visual C++ 再頒布可能パッケージ*が必要なので事前にインストールしておきます。
-以下からダウンロードします。
-https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170
+5. インストール完了後、「完了」をクリックします。
 
-![](https://storage.googleapis.com/zenn-user-upload/f2429efd43ec-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/5eb8d5028cfd-20240813.png)
 
-64bit版をダウンロードします。
-![](https://storage.googleapis.com/zenn-user-upload/ef6ef77f67ce-20240813.png)
+これでZIPファイルが解凍できるようになりました。
 
-vc_redist.x64.exeがダウンロードされていればOKです
-![](https://storage.googleapis.com/zenn-user-upload/0e3b78f74b5a-20240813.png)
+### 2. Visual C++ 再頒布可能パッケージのダウンロード
+Apacheを実行するには*Visual C++ 再頒布可能パッケージ*が必要です。以下のリンクからダウンロードしてください。  
+[Visual C++ 再頒布可能パッケージ ダウンロードリンク](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 
-## Visual C++ 再頒布可能パッケージのインストール
-vc_redist.x64.exeを実行し、「インストール」を押下
-![](https://storage.googleapis.com/zenn-user-upload/ecff62992209-20240813.png)
+1. 64bit版をダウンロードします。
 
-以上です。
+    ![](https://storage.googleapis.com/zenn-user-upload/ef6ef77f67ce-20240813.png)
 
-## Apache2.4のダウンロード
-参考: https://www.javadrive.jp/apache/install/index1.html
+2. ダウンロードした「vc_redist.x64.exe」を確認します。
 
-以下のサイトからダウンロードします
-https://www.apachelounge.com/download/
+    ![](https://storage.googleapis.com/zenn-user-upload/0e3b78f74b5a-20240813.png)
 
-*httpd-2.4.62-240718-win64-VS17.zip*を選択しダウンロード
-![](https://storage.googleapis.com/zenn-user-upload/aa1552668343-20240813.png)
+### 3. Visual C++ 再頒布可能パッケージのインストール
+1. ダウンロードした「vc_redist.x64.exe」を実行し、「インストール」をクリックします。
 
-ダウンロードフォルダに格納される
-![](https://storage.googleapis.com/zenn-user-upload/597d05348da8-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/ecff62992209-20240813.png)
 
-## Apache2.4のインストール
+これでVisual C++のインストールが完了しました。
 
-### ファイルの展開
-先ほどダウンロードした*httpd-2.4.62-240718-win64-VS17.zip*を解凍し、展開すると中にApache24を確認できる
-![](https://storage.googleapis.com/zenn-user-upload/5187cb1a3eea-20240813.png)
+### 4. Apache 2.4のダウンロード
+以下のサイトからApache 2.4をダウンロードします。  
+[Apache Lounge ダウンロードリンク](https://www.apachelounge.com/download/)
 
-わかりやすくするために、これをCドライブ直下に移動する。コピペでも切り取りでもOK。
+1. 「httpd-2.4.62-240718-win64-VS17.zip」をダウンロードします。
 
-![](https://storage.googleapis.com/zenn-user-upload/9040fc94ad36-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/aa1552668343-20240813.png)
 
-Apache24のフォルダの中を覗いてみる。
-![](https://storage.googleapis.com/zenn-user-upload/bbd7173871cc-20240813.png)
+2. ダウンロードフォルダに格納されていることを確認します。
 
-```
-主なフォルダ
-- bin 実行ファイル
-- conf 設定ファイル
-- htdocs HyperTextDocuments HTMLファイルなどの静的コンテンツ
-- logs エラーログなどログファイル
-```
+    ![](https://storage.googleapis.com/zenn-user-upload/597d05348da8-20240813.png)
 
-### httpdコマンドでインストール
-ここでコマンドプロンプトを管理者権限で実行する
-```
-フォルダ移動
-$ cd c:\Apache\bin 
-httpdコマンドを実行しApacheをインストールする
-$ httpd -k install 
-```
+### 5. Apache 2.4のインストール
 
-![](https://storage.googleapis.com/zenn-user-upload/3015e4166d9c-20240813.png)
+#### ファイルの展開
+1. ダウンロードした「httpd-2.4.62-240718-win64-VS17.zip」を解凍します。展開後、「Apache24」フォルダが表示されます。
 
-[service is successfully installed.]が出力されたらOK
+    ![](https://storage.googleapis.com/zenn-user-upload/5187cb1a3eea-20240813.png)
 
-https://qiita.com/TechCat56/items/aba26453c10414ce68f6
+2. このフォルダをCドライブ直下に移動します。
 
-## Apache2.4の起動
-いくつかやりかたはあるが、そのままnetコマンドで起動する
+    ![](https://storage.googleapis.com/zenn-user-upload/9040fc94ad36-20240813.png)
 
-```
-起動
-$ net start apache2.4 
-停止
-$ net stop apache2.4
-```
+3. 「Apache24」フォルダの内容を確認します。
 
-![](https://storage.googleapis.com/zenn-user-upload/cc92ebe2b67c-20240813.png)
+    ![](https://storage.googleapis.com/zenn-user-upload/bbd7173871cc-20240813.png)
 
-ブラウザから`http://localhost`にアクセス
-htdocs配下(ドキュメントルート)のindex.htmlがレスポンスされ、下記画像のようにIt Works!と表示される。
-![](https://storage.googleapis.com/zenn-user-upload/5a97a5d4772f-20240813.png)
+主なフォルダの内容は以下の通りです：
+- **bin**: 実行ファイルが含まれています
+- **conf**: 設定ファイルが含まれています
+- **htdocs**: HTMLファイルなどの静的コンテンツが含まれています
+- **logs**: エラーログなどのログファイルが含まれています
 
-https://marycore.jp/coding/htdocs-document-root/
+#### httpdコマンドでインストール
+1. コマンドプロンプトを管理者権限で実行します。
 
-これで動作確認が取れたのでOK！
-エラーなどが起こった場合、logs配下のエラーログを確認する。
+2. Apacheの`bin`フォルダに移動して、以下のコマンドを実行します。
 
+    ```shell
+    cd c:\Apache24\bin
+    httpd -k install
+    ```
 
+    ![](https://storage.googleapis.com/zenn-user-upload/3015e4166d9c-20240813.png)
+
+    「service is successfully installed.」と表示されたら、インストールが成功しています。
+
+#### Apache 2.4の起動
+1. コマンドプロンプトで、以下のコマンドを使用してApacheを起動します。
+
+    ```shell
+    net start apache2.4
+    ```
+
+    Apacheを停止するには、以下のコマンドを使用します。
+
+    ```shell
+    net stop apache2.4
+    ```
+
+    ![](https://storage.googleapis.com/zenn-user-upload/cc92ebe2b67c-20240813.png)
+
+2. ブラウザで`http://localhost`にアクセスし、「It Works!」が表示されれば、Apacheが正常に動作していることを確認できます。
+
+    ![](https://storage.googleapis.com/zenn-user-upload/5a97a5d4772f-20240813.png)
+
+以上で、Apacheのインストールと動作確認が完了しました。エラーが発生した場合は、`logs`フォルダ内のエラーログを確認してください。
