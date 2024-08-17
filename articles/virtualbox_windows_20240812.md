@@ -1,5 +1,5 @@
 ---
-title: "[2024年8月]virtualboxでwindowsサーバーを立てる"
+title: "[2024年8月]virtualboxに無料でwindowsサーバーを立てる"
 emoji: "🐡"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [仮想化, virtualbox, windowsサーバー]
