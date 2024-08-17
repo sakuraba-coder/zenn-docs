@@ -1,5 +1,5 @@
 ---
-title: "[2024年8月] VirtualBoxにWindowsサーバーを立ててApacheをインストールする"
+title: "[2024年8月] VirtualBoxのWindowsサーバーに無料でApacheをインストールする"
 emoji: "🗂"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [VirtualBox, Windowsサーバー, Apache]
